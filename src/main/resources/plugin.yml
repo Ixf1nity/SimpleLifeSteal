@@ -1,0 +1,6 @@
+name: LapataSMP
+version: '${project.version}'
+main: me.infinity.lapata.LapataSMP
+api-version: 1.18
+authors: [ Infinity ]
+description: an advanced lifesteal core of LapataSMP
