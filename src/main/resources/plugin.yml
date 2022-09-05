@@ -1,6 +1,6 @@
-name: LapataSMP
+name: SimpleLifeSteal
 version: '${project.version}'
-main: me.infinity.lapata.LapataSMP
+main: me.infinity.sl.SimpleLifeSteal
 api-version: 1.18
 authors: [ Infinity ]
-description: an advanced lifesteal core of LapataSMP
+description: an simple lifesteal core
