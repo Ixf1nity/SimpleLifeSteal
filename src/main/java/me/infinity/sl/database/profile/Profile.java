@@ -1,4 +1,4 @@
-package me.infinity.lapata.database.profile;
+package me.infinity.sl.database.profile;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.field.DataType;
@@ -6,7 +6,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Data;
 import lombok.Getter;
-import me.infinity.lapata.LapataSMP;
+import me.infinity.sl.SimpleLifeSteal;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import java.util.UUID;
 @DatabaseTable(tableName = "LAPATA_SMP")
 public class Profile {
 
-  @Getter private static final Dao<Profile, UUID> dao = LapataSMP.getInstance().getHikariDatabase().getProfileDao();
+  @Getter private static final Dao<Profile, UUID> dao = SimpleLifeSteal.getInstance().getHikariDatabase().getProfileDao();
   @Getter private static final Map<UUID, Profile> cache = new HashMap<>();
 
   @DatabaseField(columnName = "UUID", id = true, dataType = DataType.UUID)

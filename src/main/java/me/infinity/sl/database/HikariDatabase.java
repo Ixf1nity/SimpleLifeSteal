@@ -1,4 +1,4 @@
-package me.infinity.lapata.database;
+package me.infinity.sl.database;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -8,8 +8,8 @@ import com.j256.ormlite.table.TableUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Getter;
-import me.infinity.lapata.LapataSMP;
-import me.infinity.lapata.database.profile.Profile;
+import me.infinity.sl.SimpleLifeSteal;
+import me.infinity.sl.database.profile.Profile;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class HikariDatabase {
   private Dao<Profile, UUID> profileDao;
   private ConnectionSource connectionSource;
 
-  public HikariDatabase(LapataSMP instance) {
+  public HikariDatabase(SimpleLifeSteal instance) {
     HikariConfig hikariConfig = new HikariConfig();
 
     File database = new File(instance.getDataFolder(), "database.db");

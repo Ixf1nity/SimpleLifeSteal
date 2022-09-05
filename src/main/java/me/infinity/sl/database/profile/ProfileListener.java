@@ -1,7 +1,7 @@
-package me.infinity.lapata.database.profile;
+package me.infinity.sl.database.profile;
 
-import me.infinity.lapata.LapataSMP;
-import me.infinity.lapata.manager.util.CC;
+import me.infinity.sl.SimpleLifeSteal;
+import me.infinity.sl.manager.util.CC;
 import me.lucko.helper.Events;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
@@ -11,9 +11,9 @@ import java.sql.SQLException;
 
 public class ProfileListener {
 
-  private final LapataSMP instance;
+  private final SimpleLifeSteal instance;
 
-  public ProfileListener(LapataSMP instance) {
+  public ProfileListener(SimpleLifeSteal instance) {
     this.instance = instance;
 
     Events.subscribe(AsyncPlayerPreLoginEvent.class, EventPriority.LOW).filter(event -> !(event.getLoginResult() == AsyncPlayerPreLoginEvent.Result.ALLOWED)).handler(event -> {

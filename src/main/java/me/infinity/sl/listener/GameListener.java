@@ -1,12 +1,10 @@
-package me.infinity.lapata.listener;
+package me.infinity.sl.listener;
 
-import me.infinity.lapata.LapataSMP;
-import me.infinity.lapata.database.profile.Profile;
-import me.infinity.lapata.manager.util.CC;
-import me.infinity.lapata.manager.util.HeartsUtility;
+import me.infinity.sl.SimpleLifeSteal;
+import me.infinity.sl.database.profile.Profile;
+import me.infinity.sl.manager.util.CC;
+import me.infinity.sl.manager.util.HeartsUtility;
 import me.lucko.helper.Events;
-import me.lucko.helper.cooldown.Cooldown;
-import me.lucko.helper.cooldown.CooldownMap;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
@@ -19,13 +17,12 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class GameListener {
 
-  private final LapataSMP instance;
+  private final SimpleLifeSteal instance;
 
-  public GameListener(LapataSMP instance) {
+  public GameListener(SimpleLifeSteal instance) {
     this.instance = instance;
 
     Events.subscribe(PlayerDeathEvent.class, EventPriority.MONITOR)

@@ -1,19 +1,19 @@
-package me.infinity.lapata;
+package me.infinity.sl;
 
 import lombok.Getter;
-import me.infinity.lapata.database.HikariDatabase;
-import me.infinity.lapata.database.profile.Profile;
-import me.infinity.lapata.database.profile.ProfileListener;
-import me.infinity.lapata.listener.GameListener;
+import me.infinity.sl.database.HikariDatabase;
+import me.infinity.sl.database.profile.Profile;
+import me.infinity.sl.database.profile.ProfileListener;
+import me.infinity.sl.listener.GameListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
 
 @Getter
-public final class LapataSMP extends JavaPlugin {
+public final class SimpleLifeSteal extends JavaPlugin {
 
   @Getter
-  private static LapataSMP instance;
+  private static SimpleLifeSteal instance;
   private HikariDatabase hikariDatabase;
 
   @Override

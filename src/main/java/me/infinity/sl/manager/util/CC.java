@@ -1,4 +1,4 @@
-package me.infinity.lapata.manager.util;
+package me.infinity.sl.manager.util;
 
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;

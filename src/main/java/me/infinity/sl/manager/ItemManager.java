@@ -1,7 +1,7 @@
-package me.infinity.lapata.manager;
+package me.infinity.sl.manager;
 
-import me.infinity.lapata.LapataSMP;
-import me.infinity.lapata.manager.util.ItemBuilder;
+import me.infinity.sl.SimpleLifeSteal;
+import me.infinity.sl.manager.util.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -11,9 +11,9 @@ import org.bukkit.persistence.PersistentDataType;
 
 public class ItemManager {
 
-  private final LapataSMP instance;
+  private final SimpleLifeSteal instance;
 
-  public ItemManager(LapataSMP instance) {
+  public ItemManager(SimpleLifeSteal instance) {
     this.instance = instance;
     this.createHeartRecipe();
     this.createReviverRecipe();
