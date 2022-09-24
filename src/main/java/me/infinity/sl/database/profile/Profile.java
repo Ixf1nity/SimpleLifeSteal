@@ -24,7 +24,7 @@ public class Profile {
   @DatabaseField(columnName = "UUID", id = true, dataType = DataType.UUID)
   private UUID uniqueID;
 
-  @DatabaseField(columnName = "UUID", dataType = DataType.STRING)
+  @DatabaseField(columnName = "USERNAME", dataType = DataType.STRING)
   private String username;
 
   @DatabaseField(columnName = "ELIMINATED", dataType = DataType.BOOLEAN)

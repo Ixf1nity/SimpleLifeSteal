@@ -84,7 +84,7 @@ public class ReviveMenu implements InventoryProvider {
           Player inventoryBrowser = (Player) event.getWhoClicked();
           String toRevive = ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName());
           try {
-            Optional<Profile> toReviveProfile = Profile.getDao().queryForEq("username", toRevive).stream().findFirst();
+            Optional<Profile> toReviveProfile = Profile.getDao().queryForEq("USERNAME", toRevive).stream().findFirst();
             if (toReviveProfile.isPresent()) {
               toReviveProfile.get().setEliminated(false);
               pagination.inventory().close(inventoryBrowser);
