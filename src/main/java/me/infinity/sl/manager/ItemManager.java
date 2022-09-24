@@ -25,7 +25,7 @@ public class ItemManager {
             .setLore("&7Right-Click on the item to gain a heart.")
             .setGlow(true)
             .build();
-    builder.getItemMeta().getPersistentDataContainer().set(new NamespacedKey(instance, "lapatasmp_heart"), PersistentDataType.STRING, "true");
+    builder.getItemMeta().getPersistentDataContainer().set(new NamespacedKey(instance, "lifesteal_heart"), PersistentDataType.STRING, "true");
     return builder;
   }
 
@@ -35,12 +35,12 @@ public class ItemManager {
             .setLore("&7Right-Click on the item to gain a heart.")
             .setGlow(true)
             .build();
-    builder.getItemMeta().getPersistentDataContainer().set(new NamespacedKey(instance, "lapatasmp_reviver"), PersistentDataType.STRING, "true");
+    builder.getItemMeta().getPersistentDataContainer().set(new NamespacedKey(instance, "lifesteal_reviver"), PersistentDataType.STRING, "true");
     return builder;
   }
 
   private void createHeartRecipe() {
-    ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(instance, "lapatasmp_heart_recipe"), this.getHeart());
+    ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(instance, "lifesteal_heart_recipe"), this.getHeart());
     shapedRecipe.shape("DRD", "DSD", " N ");
     shapedRecipe.setIngredient('D', Material.DIAMOND);
     shapedRecipe.setIngredient('R', Material.RED_DYE);
@@ -51,12 +51,12 @@ public class ItemManager {
   }
 
   private void createReviverRecipe() {
-    ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(instance, "lapatasmp_reviver_recipe"), this.getReviveBook());
+    ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(instance, "lifesteal_reviver_recipe"), this.getReviveBook());
     shapedRecipe.shape("NDN", "DDD", "DDD");
     shapedRecipe.setIngredient('N', Material.NETHERITE_BLOCK);
     shapedRecipe.setIngredient('D', Material.RED_DYE);
 
-    ShapelessRecipe shapelessRecipe = new ShapelessRecipe(new NamespacedKey(instance, "lapatasmp_reviver_recipe_2"), this.getReviveBook());
+    ShapelessRecipe shapelessRecipe = new ShapelessRecipe(new NamespacedKey(instance, "lifesteal_reviver_recipe_2"), this.getReviveBook());
     shapelessRecipe.addIngredient(1, Material.DRAGON_EGG);
 
     instance.getServer().addRecipe(shapelessRecipe);

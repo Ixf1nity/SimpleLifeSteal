@@ -1,5 +1,7 @@
 package me.infinity.sl;
 
+import io.github.rysefoxx.content.IntelligentItem;
+import io.github.rysefoxx.pagination.InventoryManager;
 import lombok.Getter;
 import me.infinity.sl.database.HikariDatabase;
 import me.infinity.sl.database.profile.Profile;
@@ -16,10 +18,13 @@ public final class SimpleLifeSteal extends JavaPlugin {
   private static SimpleLifeSteal instance;
   private HikariDatabase hikariDatabase;
 
+  private InventoryManager inventoryManager;
+
   @Override
   public void onEnable() {
     instance = this;
     this.hikariDatabase = new HikariDatabase(this);
+    this.inventoryManager = new InventoryManager(this);
 
     new ProfileListener(this);
     new GameListener(this);
@@ -29,7 +34,7 @@ public final class SimpleLifeSteal extends JavaPlugin {
   public void onDisable() {
     for (Profile profile : Profile.getCache().values()) {
       try {
-        profile.save();
+        profile.save(profile.getUsername());
       } catch (SQLException e) {
         throw new RuntimeException(e);
       }

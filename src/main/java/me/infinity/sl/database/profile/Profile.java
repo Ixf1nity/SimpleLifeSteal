@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Data
-@DatabaseTable(tableName = "LAPATA_SMP")
+@DatabaseTable(tableName = "LIFESTEAL_SMP")
 public class Profile {
 
   @Getter private static final Dao<Profile, UUID> dao = SimpleLifeSteal.getInstance().getHikariDatabase().getProfileDao();
@@ -23,6 +23,9 @@ public class Profile {
 
   @DatabaseField(columnName = "UUID", id = true, dataType = DataType.UUID)
   private UUID uniqueID;
+
+  @DatabaseField(columnName = "UUID", dataType = DataType.STRING)
+  private String username;
 
   @DatabaseField(columnName = "ELIMINATED", dataType = DataType.BOOLEAN)
   private boolean isEliminated;
@@ -33,22 +36,23 @@ public class Profile {
     this.uniqueID = uniqueID;
   }
 
-  public Profile get() throws SQLException {
+  public Profile get(String username) throws SQLException {
     Optional<Profile> profile = Optional.ofNullable(dao.queryForId(uniqueID));
     return profile.orElseGet(() -> {
       try {
-        return profile.get().save();
+        return this.save(username);
       } catch (SQLException e) {
         throw new RuntimeException(e);
       }
     });
   }
 
-  public Profile save() throws SQLException {
+  public Profile save(String username) throws SQLException {
     Optional<Profile> profile = Optional.ofNullable(dao.queryForId(uniqueID));
     if (profile.isPresent()) dao.update(profile.get());
     Profile prf = new Profile(uniqueID);
     prf.setEliminated(false);
+    prf.setUsername(username);
     dao.create(prf);
     return prf;
   }

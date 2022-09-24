@@ -4,6 +4,7 @@ import me.infinity.sl.SimpleLifeSteal;
 import me.infinity.sl.database.profile.Profile;
 import me.infinity.sl.manager.util.CC;
 import me.infinity.sl.manager.util.HeartsUtility;
+import me.infinity.sl.menu.ReviveMenu;
 import me.lucko.helper.Events;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
@@ -53,12 +54,12 @@ public class GameListener {
               if (event.getItem() == null) return;
               switch (event.getItem().getType()) {
                 case BOOK:
-                  if (!Objects.requireNonNull(event.getItem().getItemMeta()).getPersistentDataContainer().has(Objects.requireNonNull(NamespacedKey.fromString("lapatasmp_reviver")), PersistentDataType.STRING))
+                  if (!Objects.requireNonNull(event.getItem().getItemMeta()).getPersistentDataContainer().has(Objects.requireNonNull(NamespacedKey.fromString("sl_reviver")), PersistentDataType.STRING))
                     return;
-                  // TODO: OPEN THE REVIVE MENU
+                  new ReviveMenu(event.getPlayer());
                   break;
                 case RED_DYE:
-                  if (!Objects.requireNonNull(event.getItem().getItemMeta()).getPersistentDataContainer().has(Objects.requireNonNull(NamespacedKey.fromString("lapatasmp_heart")), PersistentDataType.STRING))
+                  if (!Objects.requireNonNull(event.getItem().getItemMeta()).getPersistentDataContainer().has(Objects.requireNonNull(NamespacedKey.fromString("sl_heart")), PersistentDataType.STRING))
                     return;
                   HeartsUtility.setPlayerHearts(event.getPlayer(), HeartsUtility.getPlayerHearts(event.getPlayer()) + 1);
                   event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0F, 1.0F);

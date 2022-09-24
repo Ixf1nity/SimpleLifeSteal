@@ -19,19 +19,19 @@ public class ProfileListener {
     Events.subscribe(AsyncPlayerPreLoginEvent.class, EventPriority.LOW).filter(event -> !(event.getLoginResult() == AsyncPlayerPreLoginEvent.Result.ALLOWED)).handler(event -> {
       Profile profile = new Profile(event.getUniqueId());
       try {
-        Profile.getCache().putIfAbsent(profile.getUniqueID(), profile.get());
+        Profile.getCache().putIfAbsent(profile.getUniqueID(), profile.get(event.getName()));
       } catch (SQLException e) {
         throw new RuntimeException(e);
       }
 
       if (profile.isEliminated())
-        event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, CC.translate( "☠ &6You have been &c&lELIMINATED &6from the &a&lLapataSMP&7 ☠"));
+        event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, CC.translate( "☠ &6You have been &c&lELIMINATED ☠"));
     });
 
     Events.subscribe(PlayerQuitEvent.class, EventPriority.LOW).handler(event -> {
       instance.getHikariDatabase().getHikariExecutor().execute(() -> {
         try {
-          Profile.getCache().get(event.getPlayer().getUniqueId()).save();
+          Profile.getCache().get(event.getPlayer().getUniqueId()).save(event.getPlayer().getName());
         } catch (SQLException e) {
           throw new RuntimeException(e);
         }
