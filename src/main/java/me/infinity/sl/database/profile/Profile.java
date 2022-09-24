@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Data
-@DatabaseTable(tableName = "LAPATA_SMP")
+@DatabaseTable(tableName = "LIFESTEAL_SMP")
 public class Profile {
 
   @Getter private static final Dao<Profile, UUID> dao = SimpleLifeSteal.getInstance().getHikariDatabase().getProfileDao();
